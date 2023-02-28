@@ -10,3 +10,6 @@
 4. Continue taking tearns until a player connects4!
 5. Once a player wins their win tally will increase and the board will clear after 10 seconds.
 6. If there is no winner and the board is full, click the clear board button. (**!Warrning! clearing the board resets the game and no player gets a win.**)
+
+<br>
+Good luck and connect4!
