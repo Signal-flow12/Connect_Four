@@ -1,3 +1,52 @@
 body {
-    background color: yellow;
+    height: 100vh;
+    background-color: blue;
 }
+img {
+    width: 400px;
+    height: auto;
+    padding-top: 1%;
+}
+
+h2 {
+    color: white;
+}
+
+.logo{
+    padding-bottom: 2.5%;
+    display: flex;
+    justify-content: center;
+}
+
+.players{
+    display: flex;
+    justify-content: space-around;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;     
+}  
+
+.board {
+    padding-top: 5%;
+}
+
+.row {
+
+    display: flex;
+    justify-content: center;
+}
+
+.square{
+    border: 5px solid black;
+    border-radius: 100%;
+    width:4vw;
+    height:7vh;
+}
+
+
+
+
+
+
