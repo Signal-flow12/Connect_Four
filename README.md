@@ -12,4 +12,5 @@
 6. If there is no winner and the board is full, click the clear board button. (**!Warrning! clearing the board resets the game and no player gets a win.**)
 
 <br>
+Alert player if the move is 
 Good luck and connect4!

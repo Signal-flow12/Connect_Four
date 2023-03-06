@@ -14,15 +14,13 @@
     </div>
   
     <div class="players">
-        <div><h2>Red Disk</h2></div>
-        <div><h2 class="winner">Yellow Disk is the winner</h2></div>
-        <div><h2>Yellow Disk</h2></div>
+        <div><h2>Red Disk has <span class="redWins">0</span> wins!</h2></div>
+        <div><h2 class="turn">It is <span id="playerTurn" >Red Disk</span> turn!</h2></div>
+        <div><h2>Yellow Disk has <span class="yellowWins">0</span> wins!</h2></div>
     </div>
 
 
-   
-
-    <section class="board">
+    <div class="board">
         <div class="row">
             <div class="square"></div>
             <div class="square"></div>
@@ -72,11 +70,20 @@
             <div class="square"></div>
             <div class="square"></div>
             <div class="square"></div>
+        </div><div class="row">
+            <div id="taken"></div>
+            <div id="taken"></div>
+            <div id="taken"></div>
+            <div id="taken"></div>
+            <div id="taken"></div>
+            <div id="taken"></div>
+            <div id="taken"></div>
         </div>
-    </section>
+        
+    </div>
 
-    <div class="button">
-        <button>Clear Board</button>
+    <div>
+        <button class="button">Clear Board</button>
     </div>
     
 </main>
