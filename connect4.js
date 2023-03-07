@@ -3,14 +3,13 @@
 //individual slots
 const squares = document.querySelectorAll('.square');
 
-const updateTurn = document.querySelector('#turn');
+const updateTurn = document.querySelector('.turn');
 
 const clear = document.querySelectorAll('.button');
 
-const redPlayer = true;
-const yellowPlayer = false;
+let player;
 
-let currentPlayer = redPlayer;
+//let currentPlayer = player;
 
 
 const redScore = document.querySelector('.redWins');
@@ -106,19 +105,49 @@ function isAwinner () {
       }
 } 
 
-console.log(isAwinner())
+//console.log(isAwinner())
+
+//choose who goes first 
+const startAsRed = document.querySelector(".redDisk")
+const startAsYellow = document.querySelector(".yellowDisk")
+
+startAsRed.addEventListener('click', () => {
+    //console.log("Red Goes First")
+    if (player === undefined || player === "Yellow"){
+        player = "Red"
+    }
+    updateTurn.innerHTML = "Red goes first!"
+});
+
+startAsYellow.addEventListener('click', () => {
+    //console.log("Yellow Goes First")
+    if (player === undefined || player === "Red"){
+        player = "Yellow"
+    }
+    updateTurn.innerHTML = "Yellowmit goes first!"
+});
 
 //function to clear the board
 //sets Divs back to empty strings. 
 function clearBoard () {
-    clear.addEventListner('click', () => {
-        squares.innerHTML = ""
-    })
-}
+    for (let i = 0; i < squares.length; i++)
+        squares[i].innerHTML = " "
+ }
 
-for(let i = 0; squares.length; i++){
-    squares[i].addEventListener("click", () => {
-        
+//console.log(clearBoard())
+
+for(let i = 0; i < squares.length; i++){
+    squares[i].addEventListener ("click", () => {
+        //if player is not yet defined allow a move
+       if (player !== undefined && squares[i].innerHTML === " "){
+        squares[i].innerHTML = player;
+        if(isAwinner()){
+            console.log(`${player} is the winner`);
+            clearBoard()
+        }
+        if (player === "Red") player = "Yellow";
+        else player = "Red"
+       }
     })
 }
 
