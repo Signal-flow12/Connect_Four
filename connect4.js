@@ -2,6 +2,7 @@
 
 //individual slots
 const squares = document.querySelectorAll('.square');
+//console.log(squares)
 
 const updateTurn = document.querySelector('.turn');
 
@@ -23,16 +24,16 @@ let gameOver = false;
 function isAWinner () {
     const winners = [
         [squares[0], squares[1], squares[2], squares[3]],
-        [41, 40, 39, 38],
-        [7, 8, 9, 10],
-        [34, 33, 32, 31],
-        [14, 15, 16, 17],
-        [27, 26, 25, 24],
-        [21, 22, 23, 24],
-        [20, 19, 18, 17],
-        [28, 29, 30, 31],
-        [13, 12, 11, 10],
-        [35, 36, 37, 38],
+        [squares[41], squares[40], squares[39], squares[38]],
+        [squares[7], squares[8], squares[9], squares[10]],
+        [squares[34], squares[33], squares[32], squares[31]],
+        [squares[14], squares[15], squares[16], squares[17]],
+        [squares[27], squares[26], squares[25], squares[24]],
+        [squares[21], squares[22], squares[23], squares[24]],
+        [squares[20], squares[19], squares[18], squares[17]],
+        [squares[28], squares[29], squares[30], squares[31]],
+        [squares[13], squares[12], squares[11], squares[10]],
+        [squares[35], squares[36], squares[37], squares[38]],
         [6, 5, 4, 3],
         [0, 7, 14, 21],
         [41, 34, 27, 20],
@@ -92,15 +93,16 @@ function isAWinner () {
         [12, 19, 26, 33],
         [13, 20, 27, 34],
       ]
-      for (let i = 0; i < winners.length; i ++){
-        //console.log(winners[i][0])
-        if (winners[i][0].innerHTML === "Red" && winners[i][1].innerHTML === "Red" && winners[i][2].innerHTML === "Red" && winners[i][3]){
+      for (let i = 0; i < winners.length; i++){
+        //console.log(winners[i])
+        if (winners[i][0].innerHTML === "Red" && winners[i][1].innerHTML === "Red" && winners[i][2].innerHTML === "Red" && winners[i][3].innerHTML === "Red"){
+            console.log(winners[i][3])
             redWins ++;
             redScore.innerHTML = redWins; 
             return true;
-        }else if (winners[i][0].innerHTML === "Yellow" && winners[i][1].innerHTML === "Yellow" && winners[i][2].innerHTML === "Yellow" && winners[i][3]){
+        }else if (winners[i][0].innerHTML === "Yellow" && winners[i][1].innerHTML === "Yellow" && winners[i][2].innerHTML === "Yellow" && winners[i][3].innerHTML === "Yellow"){
                 yellowWins ++;
-                yellowScore.innerHTML = redWins; 
+                yellowScore.innerHTML = yellowWins; 
                 return true;
         }
       }
