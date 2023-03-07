@@ -5,7 +5,7 @@ const squares = document.querySelectorAll('.square');
 
 const updateTurn = document.querySelector('.turn');
 
-const clear = document.querySelectorAll('.button');
+const clear = document.querySelector('.clear');
 
 let player;
 
@@ -20,9 +20,9 @@ let yellowWins = 0;
 let gameOver = false;
 
 //check winning arrays 
-function isAwinner () {
+function isAWinner () {
     const winners = [
-        [0, 1, 2, 3],
+        [squares[0], squares[1], squares[2], squares[3]],
         [41, 40, 39, 38],
         [7, 8, 9, 10],
         [34, 33, 32, 31],
@@ -93,11 +93,12 @@ function isAwinner () {
         [13, 20, 27, 34],
       ]
       for (let i = 0; i < winners.length; i ++){
-        if (winners[i][0].innerHTML === "Red" && winners[i][0].innerHTML === "Red" && winners[i][0].innerHTML === "Red"){
+        //console.log(winners[i][0])
+        if (winners[i][0].innerHTML === "Red" && winners[i][1].innerHTML === "Red" && winners[i][2].innerHTML === "Red" && winners[i][3]){
             redWins ++;
             redScore.innerHTML = redWins; 
             return true;
-        }else if (winners[i][0].innerHTML === "Yellow" && winners[i][0].innerHTML === "Yellow" && winners[i][0].innerHTML === "Yellow"){
+        }else if (winners[i][0].innerHTML === "Yellow" && winners[i][1].innerHTML === "Yellow" && winners[i][2].innerHTML === "Yellow" && winners[i][3]){
                 yellowWins ++;
                 yellowScore.innerHTML = redWins; 
                 return true;
@@ -124,24 +125,36 @@ startAsYellow.addEventListener('click', () => {
     if (player === undefined || player === "Red"){
         player = "Yellow"
     }
-    updateTurn.innerHTML = "Yellowmit goes first!"
+    updateTurn.innerHTML = "Yellow goes first!"
 });
+
+
+clear.addEventListener("click", () => {
+    for (let i = 0; i < squares.length; i++){
+        squares[i].innerHTML = ""
+    }
+})
+
+//clear.onclick = () => squares.innerHTML = "";
 
 //function to clear the board
 //sets Divs back to empty strings. 
 function clearBoard () {
     for (let i = 0; i < squares.length; i++)
-        squares[i].innerHTML = " "
+        squares[i].innerHTML = ""
  }
+
+
 
 //console.log(clearBoard())
 
 for(let i = 0; i < squares.length; i++){
     squares[i].addEventListener ("click", () => {
         //if player is not yet defined allow a move
-       if (player !== undefined && squares[i].innerHTML === " "){
+       if (player !== undefined && squares[i].innerHTML === ""){
         squares[i].innerHTML = player;
-        if(isAwinner()){
+        console.log(player)
+        if(isAWinner()){    
             console.log(`${player} is the winner`);
             clearBoard()
         }
