@@ -19,7 +19,7 @@ const yellowScore = document.querySelector('.yellowWins');
 let redWins = 0;
 let yellowWins = 0;
 
-let gameOver = false;
+// let gameOver = false;
 
 //looping through winning arrays. Array within an array. 
 function isAWinner () {
@@ -103,10 +103,12 @@ function isAWinner () {
             redWins ++;
             redScore.innerHTML = redWins; 
             return true;
+
         }else if (winners[i][0].innerHTML === "Yellow" && winners[i][1].innerHTML === "Yellow" && winners[i][2].innerHTML === "Yellow" && winners[i][3].innerHTML === "Yellow"){
                 yellowWins ++;
                 yellowScore.innerHTML = yellowWins; 
                 return true;
+                
         }
       }
     return false;
@@ -152,8 +154,6 @@ function clearBoard () {
         squares[i].innerHTML = ""
  }
 
-
-console.log()
 //console.log(clearBoard())
 
 
@@ -175,7 +175,10 @@ for (let i = 0; i < squares.length; i++){
                 updateTurn.innerHTML = "Reds Turn"
             }  
         }else updateTurn.innerHTML = "Invalid Move!"
-        isAWinner()
+        if (isAWinner() === true){
+            setTimeout(clearBoard, 3000)
+        }
+        
     })
 }
 
