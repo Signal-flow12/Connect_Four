@@ -162,10 +162,9 @@ function clearBoard () {
 
 //console.log(clearBoard())
 
-
 for (let i = 0; i < squares.length; i++){
     squares[i].addEventListener('click', () => {
-        if(squares[i + 7].classList.contains("taken")){
+        if(squares[i + 7].classList.contains("taken") && squares[i].innerHTML === ""){
             if (player === "Red"){
                 squares[i].innerHTML = "Red" 
                 squares[i].classList.add("Red");
@@ -195,6 +194,8 @@ for (let i = 0; i < squares.length; i++){
         
     })
 }
+
+
 
 clearButton.addEventListener('click', clearBoard)
 
