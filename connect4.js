@@ -2,24 +2,21 @@
 
 //individual divs
 const squares = document.querySelectorAll('.square');
-//console.log(squares)
-//messaging
 const updateTurn = document.querySelector('.turn');
-//clear board
-const clear = document.querySelector('.clear');
-
+const clearButton = document.querySelector('.clear');
+const startAsRed = document.querySelector(".redDisk")
+const startAsYellow = document.querySelector(".yellowDisk")
+const redScore = document.querySelector('.redWins');
+const yellowScore = document.querySelector('.yellowWins');
 //const taken = document.querySelectorAll(".taken")
 
 let player;
-
 //update score when someone wins
-const redScore = document.querySelector('.redWins');
-const yellowScore = document.querySelector('.yellowWins');
 
 let redWins = 0;
 let yellowWins = 0;
 
-// let gameOver = false;
+let gameOver = false;
 
 //looping through winning arrays. Array within an array. 
 function isAWinner () {
@@ -99,14 +96,17 @@ function isAWinner () {
       for (let i = 0; i < winners.length; i++){
             //console.log(winners[i])
         if (winners[i][0].innerHTML === "Red" && winners[i][1].innerHTML === "Red" && winners[i][2].innerHTML === "Red" && winners[i][3].innerHTML === "Red"){
-            console.log(winners[i][3])
+            //console.log(winners[i][3])
             redWins ++;
+            console.log(redWins)
+            //console.log(redWins)
             redScore.innerHTML = redWins; 
             return true;
 
         }else if (winners[i][0].innerHTML === "Yellow" && winners[i][1].innerHTML === "Yellow" && winners[i][2].innerHTML === "Yellow" && winners[i][3].innerHTML === "Yellow"){
                 yellowWins ++;
                 yellowScore.innerHTML = yellowWins; 
+                // turn.innerHTML = "Yellow Disk Wins!"
                 return true;
                 
         }
@@ -114,11 +114,8 @@ function isAWinner () {
     return false;
 } 
 
-//console.log(isAwinner())
 
-//choose who goes first 
-const startAsRed = document.querySelector(".redDisk")
-const startAsYellow = document.querySelector(".yellowDisk")
+
 
 //choose to start as Red
 startAsRed.addEventListener('click', () => {
@@ -139,48 +136,65 @@ startAsYellow.addEventListener('click', () => {
 });
 
 //button to clear board
-clear.addEventListener("click", () => {
-    for (let i = 0; i < squares.length; i++){
-        squares[i].innerHTML = ""
-    }
-})
+// clearButton.addEventListener("click", () => {
+//     for (let i = 0; i < squares.length; i++){
+//         squares[i].innerHTML = ""
+//         squares[i].style.backgroundColor = ""
+//         //squares[i].classList.remove("taken")
+//     }
+// })
 
-//clear.onclick = () => squares.innerHTML = "";
+//clearButton.onclick = () => squares.innerHTML = "";
 
 //function to clear the board
 //sets Divs back to empty strings. 
 function clearBoard () {
-    for (let i = 0; i < squares.length; i++)
-        squares[i].innerHTML = ""
+    for (let i = 0; i < squares.length; i++){
+        for (let i = 0; i < squares.length; i++){
+            squares[i].innerHTML = ""
+            squares[i].style.backgroundColor = ""
+            // squares[i].classList.remove("taken")
+           }
+    }
+    gameOver = false;
  }
+
 
 //console.log(clearBoard())
 
 
 for (let i = 0; i < squares.length; i++){
-    squares[i].addEventListener('click', (e) => {
+    squares[i].addEventListener('click', () => {
         if(squares[i + 7].classList.contains("taken")){
             if (player === "Red"){
                 squares[i].innerHTML = "Red" 
-                squares[i].classList.add("Red")
-                squares[i].classList.add("taken")
+                squares[i].classList.add("Red");
+                squares[i].classList.add("taken");
+                squares[i].style.backgroundColor = "red";
                 player = "Yellow"
                 updateTurn.innerHTML = "Yellows Turn"
+                
             }
             else if (player === "Yellow"){
                 squares[i].innerHTML = "Yellow" 
                 squares[i].classList.add("Yellow")
                 squares[i].classList.add("taken")
+                squares[i].style.backgroundColor = "yellow"
                 player = "Red"
                 updateTurn.innerHTML = "Reds Turn"
+                
             }  
         }else updateTurn.innerHTML = "Invalid Move!"
-        if (isAWinner() === true){
-            setTimeout(clearBoard, 3000)
+        if (isAWinner()){
+            //setTimeout(clearBoard, 5000) 
+            player = undefined
         }
+        
+        
+        
         
     })
 }
 
-
+clearButton.addEventListener('click', clearBoard)
 
