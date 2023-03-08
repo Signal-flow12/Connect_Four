@@ -42,57 +42,57 @@ function isAWinner () {
         [squares[40], squares[33], squares[26], squares[19]],
         [squares[2], squares[9], squares[16], squares[23]],
         [squares[39], squares[32], squares[25], squares[18]],
-        [3, 10, 17, 24],
-        [38, 31, 24, 17],
-        [4, 11, 18, 25],
-        [37, 30, 23, 16],
-        [5, 12, 19, 26],
-        [36, 29, 22, 15],
-        [6, 13, 20, 27],
-        [35, 28, 21, 14],
-        [0, 8, 16, 24],
-        [41, 33, 25, 17],
-        [7, 15, 23, 31],
-        [34, 26, 18, 10],
-        [14, 22, 30, 38],
-        [27, 19, 11, 3],
-        [35, 29, 23, 17],
-        [6, 12, 18, 24],
-        [28, 22, 16, 10],
-        [13, 19, 25, 31],
-        [21, 15, 9, 3],
-        [20, 26, 32, 38],
-        [36, 30, 24, 18],
-        [5, 11, 17, 23],
-        [37, 31, 25, 19],
-        [4, 10, 16, 22],
-        [2, 10, 18, 26],
-        [39, 31, 23, 15],
-        [1, 9, 17, 25],
-        [40, 32, 24, 16],
-        [9, 17, 25, 33],
-        [8, 16, 24, 32],
-        [11, 17, 23, 29],
-        [12, 18, 24, 30],
-        [1, 2, 3, 4],
-        [5, 4, 3, 2],
-        [8, 9, 10, 11],
-        [12, 11, 10, 9],
-        [15, 16, 17, 18],
-        [19, 18, 17, 16],
-        [22, 23, 24, 25],
-        [26, 25, 24, 23],
-        [29, 30, 31, 32],
-        [33, 32, 31, 30],
-        [36, 37, 38, 39],
-        [40, 39, 38, 37],
-        [7, 14, 21, 28],
-        [8, 15, 22, 29],
-        [9, 16, 23, 30],
-        [10, 17, 24, 31],
-        [11, 18, 25, 32],
-        [12, 19, 26, 33],
-        [13, 20, 27, 34],
+        [squares[3], squares[10], squares[17], squares[24]],
+        [squares[38], squares[31], squares[24], squares[17]],
+        [squares[4], squares[11], squares[18], squares[25]],
+        [squares[37], squares[30], squares[23], squares[16]],
+        [squares[5], squares[12], squares[19], squares[26]],
+        [squares[36], squares[29], squares[22], squares[15]],
+        [squares[6], squares[13], squares[20], squares[27]],
+        [squares[35], squares[28], squares[21], squares[14]],
+        [squares[0], squares[8], squares[16], squares[24]],
+        [squares[41], squares[33], squares[25], squares[17]],
+        [squares[7], squares[15], squares[23], squares[31]],
+        [squares[34], squares[26], squares[18], squares[10]],
+        [squares[14], squares[22], squares[30], squares[38]],
+        [squares[27], squares[19], squares[11], squares[3]],
+        [squares[35], squares[29], squares[23], squares[17]],
+        [squares[6], squares[12], squares[18], squares[24]],
+        [squares[28], squares[22], squares[16], squares[10]],
+        [squares[13], squares[19], squares[25], squares[31]],
+        [squares[21], squares[15], squares[9], squares[3]],
+        [squares[20], squares[26], squares[32], squares[38]],
+        [squares[36], squares[30], squares[24], squares[18]],
+        [squares[5], squares[11], squares[17], squares[23]],
+        [squares[37], squares[31], squares[25], squares[19]],
+        [squares[4], squares[10], squares[16], squares[22]],
+        [squares[2], squares[10], squares[18], squares[26]],
+        [squares[39], squares[31], squares[23], squares[15]],
+        [squares[1], squares[9], squares[17], squares[25]],
+        [squares[40], squares[32], squares[24], squares[16]],
+        [squares[9], squares[17], squares[25], squares[33]],
+        [squares[8], squares[16], squares[24], squares[32]],
+        [squares[11], squares[17], squares[23], squares[29]],
+        [squares[12], squares[18], squares[24], squares[30]],
+        [squares[1], squares[2], squares[3], squares[4]],
+        [squares[5], squares[4], squares[3], squares[2]],
+        [squares[8], squares[9], squares[10], squares[11]],
+        [squares[12], squares[11], squares[10], squares[9]],
+        [squares[15], squares[16], squares[17], squares[18]],
+        [squares[19], squares[18], squares[17], squares[16]],
+        [squares[22], squares[23], squares[24], squares[25]],
+        [squares[26], squares[25], squares[24], squares[23]],
+        [squares[29], squares[30], squares[31], squares[32]],
+        [squares[33], squares[32], squares[31], squares[30]],
+        [squares[36], squares[37], squares[38], squares[39]],
+        [squares[40], squares[39], squares[38], squares[37]],
+        [squares[7], squares[14], squares[21], squares[28]],
+        [squares[8], squares[15], squares[22], squares[29]],
+        [squares[9], squares[16], squares[23], squares[30]],
+        [squares[10], squares[17], squares[24], squares[31]],
+        [squares[11], squares[18], squares[25], squares[32]],
+        [squares[12], squares[19], squares[26], squares[33]],
+        [squares[13], squares[20], squares[27], squares[34]],
       ]
     //looping through winning arrays(Array within an array). 
     //Checking for a winner. 
@@ -165,38 +165,19 @@ for (let i = 0; i < squares.length; i++){
                 squares[i].classList.add("Red")
                 squares[i].classList.add("taken")
                 player = "Yellow"
+                updateTurn.innerHTML = "Yellows Turn"
             }
             else if (player === "Yellow"){
                 squares[i].innerHTML = "Yellow" 
                 squares[i].classList.add("Yellow")
                 squares[i].classList.add("taken")
                 player = "Red"
-            }
-           
-        }
+                updateTurn.innerHTML = "Reds Turn"
+            }  
+        }else updateTurn.innerHTML = "Invalid Move!"
+        isAWinner()
     })
 }
-// for(let i = 0; i < squares.length; i++){
-//     squares[i].addEventListener ("click", () => {
-//        if (player !== undefined && squares[i].innerHTML === ""){
-//         squares[i].innerHTML = player;
-//         console.log(player)
-//         if(isAWinner()){    
-//             console.log(`${player} has one the game!   `);
-//             clearBoard()
-//         }
-//         if (player === "Red") player = "Yellow";
-//         else player = "Red"
-//        }
-//     })
-// }
 
-// for (let i = 0; i < squares.length; i++){
-//     squares[i].addEventListener('click', () => {
-//         if(allowMove(squares[i])){
-//             isAWinner();
-//         }
-//     })
-// }
 
 
