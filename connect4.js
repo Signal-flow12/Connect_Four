@@ -1,26 +1,27 @@
 //event listeners for gameboard divs, score update, winning disk color, clear button.
 
-//individual slots
+//individual divs
 const squares = document.querySelectorAll('.square');
 //console.log(squares)
-
+//messaging
 const updateTurn = document.querySelector('.turn');
-
+//clear board
 const clear = document.querySelector('.clear');
+
+//const taken = document.querySelectorAll(".taken")
 
 let player;
 
-//let currentPlayer = player;
-
-
+//update score when someone wins
 const redScore = document.querySelector('.redWins');
 const yellowScore = document.querySelector('.yellowWins');
+
 let redWins = 0;
 let yellowWins = 0;
 
 let gameOver = false;
 
-//check winning arrays 
+//looping through winning arrays. Array within an array. 
 function isAWinner () {
     const winners = [
         [squares[0], squares[1], squares[2], squares[3]],
@@ -34,13 +35,13 @@ function isAWinner () {
         [squares[28], squares[29], squares[30], squares[31]],
         [squares[13], squares[12], squares[11], squares[10]],
         [squares[35], squares[36], squares[37], squares[38]],
-        [6, 5, 4, 3],
-        [0, 7, 14, 21],
-        [41, 34, 27, 20],
-        [1, 8, 15, 22],
-        [40, 33, 26, 19],
-        [2, 9, 16, 23],
-        [39, 32, 25, 18],
+        [squares[6], squares[5], squares[4], squares[3]],
+        [squares[0], squares[7], squares[14], squares[21]],
+        [squares[41], squares[34], squares[27], squares[20]],
+        [squares[1], squares[8], squares[15], squares[22]],
+        [squares[40], squares[33], squares[26], squares[19]],
+        [squares[2], squares[9], squares[16], squares[23]],
+        [squares[39], squares[32], squares[25], squares[18]],
         [3, 10, 17, 24],
         [38, 31, 24, 17],
         [4, 11, 18, 25],
@@ -93,8 +94,10 @@ function isAWinner () {
         [12, 19, 26, 33],
         [13, 20, 27, 34],
       ]
+    //looping through winning arrays(Array within an array). 
+    //Checking for a winner. 
       for (let i = 0; i < winners.length; i++){
-        //console.log(winners[i])
+            //console.log(winners[i])
         if (winners[i][0].innerHTML === "Red" && winners[i][1].innerHTML === "Red" && winners[i][2].innerHTML === "Red" && winners[i][3].innerHTML === "Red"){
             console.log(winners[i][3])
             redWins ++;
@@ -106,6 +109,7 @@ function isAWinner () {
                 return true;
         }
       }
+    return false;
 } 
 
 //console.log(isAwinner())
@@ -114,6 +118,7 @@ function isAWinner () {
 const startAsRed = document.querySelector(".redDisk")
 const startAsYellow = document.querySelector(".yellowDisk")
 
+//choose to start as Red
 startAsRed.addEventListener('click', () => {
     //console.log("Red Goes First")
     if (player === undefined || player === "Yellow"){
@@ -122,6 +127,7 @@ startAsRed.addEventListener('click', () => {
     updateTurn.innerHTML = "Red goes first!"
 });
 
+//choose to start as Yellow
 startAsYellow.addEventListener('click', () => {
     //console.log("Yellow Goes First")
     if (player === undefined || player === "Red"){
@@ -130,7 +136,7 @@ startAsYellow.addEventListener('click', () => {
     updateTurn.innerHTML = "Yellow goes first!"
 });
 
-
+//button to clear board
 clear.addEventListener("click", () => {
     for (let i = 0; i < squares.length; i++){
         squares[i].innerHTML = ""
@@ -147,37 +153,50 @@ function clearBoard () {
  }
 
 
-
+console.log()
 //console.log(clearBoard())
 
-for(let i = 0; i < squares.length; i++){
-    squares[i].addEventListener ("click", () => {
-        //if player is not yet defined allow a move
-       if (player !== undefined && squares[i].innerHTML === ""){
-        squares[i].innerHTML = player;
-        console.log(player)
-        if(isAWinner()){    
-            console.log(`${player} is the winner`);
-            clearBoard()
+
+for (let i = 0; i < squares.length; i++){
+    squares[i].addEventListener('click', (e) => {
+        if(squares[i + 7].classList.contains("taken")){
+            if (player === "Red"){
+                squares[i].innerHTML = "Red" 
+                squares[i].classList.add("Red")
+                squares[i].classList.add("taken")
+                player = "Yellow"
+            }
+            else if (player === "Yellow"){
+                squares[i].innerHTML = "Yellow" 
+                squares[i].classList.add("Yellow")
+                squares[i].classList.add("taken")
+                player = "Red"
+            }
+           
         }
-        if (player === "Red") player = "Yellow";
-        else player = "Red"
-       }
     })
 }
+// for(let i = 0; i < squares.length; i++){
+//     squares[i].addEventListener ("click", () => {
+//        if (player !== undefined && squares[i].innerHTML === ""){
+//         squares[i].innerHTML = player;
+//         console.log(player)
+//         if(isAWinner()){    
+//             console.log(`${player} has one the game!   `);
+//             clearBoard()
+//         }
+//         if (player === "Red") player = "Yellow";
+//         else player = "Red"
+//        }
+//     })
+// }
+
+// for (let i = 0; i < squares.length; i++){
+//     squares[i].addEventListener('click', () => {
+//         if(allowMove(squares[i])){
+//             isAWinner();
+//         }
+//     })
+// }
 
 
-
-
-// need to write a function to see who wins
-
-
-// function to update the score with who won
-
-//function update who the winner is when someone one
-
-
-//submit.addEventListener('click', clearBoard.style.color = 'blue')// players red disk and yellow disk
-
-
-//function to clear the board
