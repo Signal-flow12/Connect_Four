@@ -63,6 +63,17 @@ h2 {
     height:7vh;
 }
 
+.startTaken {
+    visibility: hidden;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.red {
+    background-color: red;
+}
 
 /* .button {
     padding-top: 1%;

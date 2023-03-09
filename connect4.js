@@ -95,18 +95,22 @@ function isAWinner () {
     //Checking for a winner. 
       for (let i = 0; i < winners.length; i++){
             //console.log(winners[i])
-        if (winners[i][0].innerHTML === "Red" && winners[i][1].innerHTML === "Red" && winners[i][2].innerHTML === "Red" && winners[i][3].innerHTML === "Red"){
+        if (winners[i][0].classList.contains("red") && winners[i][1].classList.contains("red") && winners[i][2].classList.contains("red") && winners[i][3].classList.contains("red")){
             //console.log(winners[i][3])
             redWins ++;
-            console.log(redWins)
-            //console.log(redWins)
             redScore.innerHTML = redWins; 
+            updateTurn.innerHTML = "Red Disk Wins!"
+            player = undefined 
+            // window.removeEventListener('click', handleClick)
+            //console.log(player)
             return true;
 
-        }else if (winners[i][0].innerHTML === "Yellow" && winners[i][1].innerHTML === "Yellow" && winners[i][2].innerHTML === "Yellow" && winners[i][3].innerHTML === "Yellow"){
+        }else if (winners[i][0].classList.contains("yellow") && winners[i][1].classList.contains("yellow")&& winners[i][2].classList.contains("yellow") && winners[i][3].classList.contains("yellow")){
                 yellowWins ++;
                 yellowScore.innerHTML = yellowWins; 
-                // turn.innerHTML = "Yellow Disk Wins!"
+                updateTurn.innerHTML = "Yellow Disk Wins!"
+                player = undefined
+                // window.removeEventListener('click', handleClick)
                 return true;
                 
         }
@@ -114,7 +118,7 @@ function isAWinner () {
     return false;
 } 
 
-
+//remove class list of red during 
 
 
 //choose to start as Red
@@ -129,6 +133,7 @@ startAsRed.addEventListener('click', () => {
 //choose to start as Yellow
 startAsYellow.addEventListener('click', () => {
     //console.log("Yellow Goes First")
+    
     if (player === undefined || player === "Red"){
         player = "Yellow"
     }
@@ -151,9 +156,11 @@ startAsYellow.addEventListener('click', () => {
 function clearBoard () {
     for (let i = 0; i < squares.length; i++){
         for (let i = 0; i < squares.length; i++){
-            squares[i].innerHTML = ""
             squares[i].style.backgroundColor = ""
-            // squares[i].classList.remove("taken")
+            squares[i].classList.remove("red")
+            squares[i].classList.remove("yellow")
+            squares[i].classList.remove("taken")
+            
            }
     }
     gameOver = false;
@@ -161,41 +168,77 @@ function clearBoard () {
 
 
 //console.log(clearBoard())
-
 for (let i = 0; i < squares.length; i++){
-    squares[i].addEventListener('click', () => {
-        if(squares[i + 7].classList.contains("taken") && squares[i].innerHTML === ""){
-            if (player === "Red"){
-                squares[i].innerHTML = "Red" 
-                squares[i].classList.add("Red");
-                squares[i].classList.add("taken");
-                squares[i].style.backgroundColor = "red";
-                player = "Yellow"
-                updateTurn.innerHTML = "Yellows Turn"
+        //console.log([i])
+        squares[i].addEventListener('click', () => {
+            if(squares[i + 7].classList.contains("startTaken") || squares[i + 7].classList.contains("taken") &&!squares[i].classList.contains("taken") && gameOver !== true){
+                if (player === "Red"){
+                    //squares[i].innerHTML = "Red" 
+                    squares[i].classList.add("red");
+                    squares[i].classList.add("taken");
+                    //squares[i].style.backgroundColor = "red";
+                    player = "Yellow"
+                    updateTurn.innerHTML = "Yellows Turn"
+                    
+                }
+                else if (player === "Yellow"){
+                    //squares[i].innerHTML = "Yellow" 
+                    squares[i].classList.add("yellow")
+                    squares[i].classList.add("taken")
+                    //squares[i].style.backgroundColor = "yellow"
+                    player = "Red"
+                    updateTurn.innerHTML = "Reds Turn"
+                    
+                    
+                }  
+            }else updateTurn.innerHTML = "Invalid Move!"
+            isAWinner()
+            //{
+            //     // gameOver = true
+            //     // console.log(gameOver)
+            //     //setTimeout(clearBoard, 3000) 
+            //     //player = undefined
+            //     //console.log(player)
+            // }     
+        })
+    }
+// for (let i = 0; i < squares.length; i++){
+//     //console.log([i])
+//     squares[i].addEventListener('click', () => {
+//         if(squares[i + 7].classList.contains("startTaken") || squares[i + 7].classList.contains("taken") &&!squares[i].classList.contains("taken") && gameOver !== true){
+//             if (player === "Red"){
+//                 //squares[i].innerHTML = "Red" 
+//                 squares[i].classList.add("red");
+//                 squares[i].classList.add("taken");
+//                 //squares[i].style.backgroundColor = "red";
+//                 player = "Yellow"
+//                 updateTurn.innerHTML = "Yellows Turn"
                 
-            }
-            else if (player === "Yellow"){
-                squares[i].innerHTML = "Yellow" 
-                squares[i].classList.add("Yellow")
-                squares[i].classList.add("taken")
-                squares[i].style.backgroundColor = "yellow"
-                player = "Red"
-                updateTurn.innerHTML = "Reds Turn"
+//             }
+//             else if (player === "Yellow"){
+//                 //squares[i].innerHTML = "Yellow" 
+//                 squares[i].classList.add("yellow")
+//                 squares[i].classList.add("taken")
+//                 //squares[i].style.backgroundColor = "yellow"
+//                 player = "Red"
+//                 updateTurn.innerHTML = "Reds Turn"
                 
-            }  
-        }else updateTurn.innerHTML = "Invalid Move!"
-        if (isAWinner()){
-            //setTimeout(clearBoard, 5000) 
-            player = undefined
-        }
-        
-        
-        
-        
-    })
-}
+                
+//             }  
+//         }else updateTurn.innerHTML = "Invalid Move!"
+//         isAWinner()
+        //{
+        //     // gameOver = true
+        //     // console.log(gameOver)
+        //     //setTimeout(clearBoard, 3000) 
+        //     //player = undefined
+        //     //console.log(player)
+        // }     
+//     })
+// }
 
-
-
+//squares.addEventListener('click', (handleClick))
 clearButton.addEventListener('click', clearBoard)
 
+//give very bottom row a special class - start taken 
+//assign css class rule to start start taken vis hidden
