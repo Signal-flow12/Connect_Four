@@ -4,11 +4,12 @@ body {
     background-color: rgb(23, 82, 232);
 }
 
-img {
+.header {
     width: 540px;
     height: auto;
     
 }
+
 h1{
     font-size: 45px;
     font-family: 'Stick No Bills', sans-serif;
@@ -17,7 +18,8 @@ h1{
 
 
 h2 {
-    color: rgb(255, 255, 255);
+    font-size: 30px;
+    color: black;
     font-family: 'Stick No Bills', sans-serif;
 }
 
@@ -28,46 +30,45 @@ button {
     font-size: 24px;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-
-}
-
 .logo{
+    width: 60vw;
+    margin: auto;
     display: flex;
     justify-content: center;
     padding-top: 2%;
+    border: 5px double black; ;
+    padding-bottom: 2%
+    
     
 } 
 
 
 .players{
+    text-align: center;
     display: flex;
     justify-content: space-around;
+    border: 5px solid black;
 }
 
 .button {
     padding-bottom: 25%;
     display: flex;
     justify-content: center;
-    justify-content: space-evenly;
-
-
-
-   
+    
 }
 
 .board { 
-    display: inline-block;
-    border: 5px solid black;  
+    width: 35vw;
+    margin: auto;
+    border: 5px double black;
 }
 
 .message {
+   
+    width: 30vw;
+    margin: auto;
     text-align: center;
-    border: 5px solid black;
+    
 }
 
 /* flexbox for game grid */
@@ -109,20 +110,12 @@ button {
 }
 
 
-.redScore {
-    border: 5px solid black;
-}
-
-.yellowScore {
-    border: 5px solid black;
-}
-
 .connect {
     border: 5px solid black;
 }
 
 .clear {
-    width: 30%;
+    width: 13.5%;
 }
 
 
