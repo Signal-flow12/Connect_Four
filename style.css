@@ -44,10 +44,11 @@ button {
 
 
 .players{
+    height: 0vw;
     text-align: center;
     display: flex;
     justify-content: space-around;
-    border: 5px solid black;
+    /* border: 5px solid black; */
 }
 
 .button {
@@ -118,7 +119,20 @@ button {
     width: 13.5%;
 }
 
+.redScore {
+    display: flex;
+    justify-content: space-around ;
+    text-align: center;
+    width:10vw;
+}
 
+.yellowScore {
+    display: flex;
+    justify-content: fle;
+    text-align: center;
+
+    width:10vw;
+}
 
 
 
