@@ -115,8 +115,21 @@ button {
     border: 5px solid black;
 }
 
+
 .clear {
-    width: 13.5%;
+    display: block;
+    width: 5000px;
+    margin: 20px; 
+    margin-left: 20%; 
+    
+}
+.redDisk {
+    width: 18%;
+    
+}
+
+.yellowDisk {
+    width: 18%;
 }
 
 .redScore {
@@ -128,7 +141,7 @@ button {
 
 .yellowScore {
     display: flex;
-    justify-content: fle;
+    justify-content: flex;
     text-align: center;
 
     width:10vw;
