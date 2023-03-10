@@ -6,88 +6,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=.0">
     <script src="connect4.js" defer></script>
     <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
+
     <title>Connect4!</title>
 </head>
 <body>
-    <div class="logo">
-        <img src="https://shuffle.cards/assets/images/licenses/connect4/header_logo.png" alt="Connect4 original logo">
-    </div>
-  
-    <div class="players">
-        <div><h2>Red Disk has <span class="redWins">0</span> wins!</h2></div>
-        <div><h2 class="turn">Ready to play Connect4?</h2></div>
-        <div><h2>Yellow Disk has <span class="yellowWins">0</span> wins!</h2></div>
-    </div>
-
-
-    <div class="board">
-        <div class="row">
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-        </div>
-        <div class="row">
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-        </div><div class="row">
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-        </div><div class="row">
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-        </div><div class="row">
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-        </div><div class="row">
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-        </div><div class="row">
-            <div class="square startTaken taken" ></div>
-            <div class="square startTaken taken"></div>
-            <div class="square startTaken taken"></div>
-            <div class="square startTaken taken"></div>
-            <div class="square startTaken taken"></div>
-            <div class="square startTaken taken"></div>
-            <div class="square startTaken taken"></div>
-        </div>
-        
-    </div>
-
-    <div class = button>
-        <button class="redDisk">Red Goes First</button>
-        <button class="clear">Clear Board</button>
-        <button class="yellowDisk">Yellow Goes First</button>
-    </div>
+    <button class="music">&#9835;</button>
     
+    <div class="container">
+            <div class="logo">
+                <img src="https://shuffle.cards/assets/images/licenses/connect4/header_logo.png" alt="Connect4 original logo">
+            </div>
+            <div class="message"><h1 class="turn">Ready to play Connect4?</h2></div>
+                <div class="players">
+                    <div class="redScore"><h2>Red Disk has <span class="redWins">0</span> wins!</h2></div>
+                    
+                    <div
+                    class="yellowScore"><h2>Yellow Disk has <span class="yellowWins">0</span> wins!</h2></div>
+                 </div>
+            <div class="board"> 
+                <div class="row">
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                </div>
+                <div class="row">
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                </div>
+                <div class="row">
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                </div>
+                <div class="row">
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+             </div>
+                <div class="row">
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+            </div>
+                <div class="row">
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+            </div>
+                <div class="row">
+                    <div class="square startTaken taken" ></div>
+                    <div class="square startTaken taken"></div>
+                    <div class="square startTaken taken"></div>
+                    <div class="square startTaken taken"></div>
+                    <div class="square startTaken taken"></div>
+                    <div class="square startTaken taken"></div>
+                    <div class="square startTaken taken"></div>
+                </div>
+
+        </div>
+        <div class = button>
+            <button class="redDisk">Start as Red</button>
+            <button class="clear">Clear Board</button>
+            <button class="yellowDisk">Start as Yellow</button>
+        </div>
+    </div>
 </main>
     
 </body>

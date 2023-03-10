@@ -3,44 +3,74 @@ body {
     height: 100vh;
     background-color: rgb(23, 82, 232);
 }
+
 img {
-    width: 400px;
+    width: 540px;
     height: auto;
-    padding-top: 1%;
+    
+}
+h1{
+    font-size: 45px;
+    font-family: 'Stick No Bills', sans-serif;
 }
 
+
+
 h2 {
-    color: white;
+    color: rgb(255, 255, 255);
+    font-family: 'Stick No Bills', sans-serif;
+}
+
+button {
+    color: rgb(255, 255, 255);
+    background-color: rgb(220, 76, 74);
+    border-radius: 0%;
+    font-size: 24px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
 }
 
 .logo{
-    padding-bottom: 2.5%;
     display: flex;
     justify-content: center;
-}
+    padding-top: 2%;
+    
+} 
+
 
 .players{
     display: flex;
     justify-content: space-around;
 }
 
-.logo {
-    display: flex;
-    justify-content: space-around;  
-    
-}  
-
 .button {
-    padding-top: 3%;
+    padding-bottom: 25%;
     display: flex;
     justify-content: center;
+    justify-content: space-evenly;
+
+
+
+   
 }
 
-.board {
-    padding-top: 2%;
-    
+.board { 
+    display: inline-block;
+    border: 5px solid black;  
 }
 
+.message {
+    text-align: center;
+    border: 5px solid black;
+}
+
+/* flexbox for game grid */
 .row {
 
     display: flex;
@@ -55,6 +85,8 @@ h2 {
     width:4vw;
     height:7vh;
 }
+
+/* class added for when a move is made */
 .taken {
     border: 5px solid black;
     text-align: center;
@@ -67,6 +99,7 @@ h2 {
     visibility: hidden;
 }
 
+/* player colors */
 .yellow {
     background-color: yellow;
 }
@@ -75,19 +108,22 @@ h2 {
     background-color: red;
 }
 
-/* .button {
-    padding-top: 1%;
-    display: flex;
-    justify-content: center;
-} */
 
-button {
-    color: yellow;
-    background-color: red;
-    border-radius: 0%;
-    font-size: 24px;
+.redScore {
+    border: 5px solid black;
 }
 
+.yellowScore {
+    border: 5px solid black;
+}
+
+.connect {
+    border: 5px solid black;
+}
+
+.clear {
+    width: 30%;
+}
 
 
 

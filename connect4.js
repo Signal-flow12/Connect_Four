@@ -123,56 +123,38 @@ function isAWinner () {
 
 //choose to start as Red
 startAsRed.addEventListener('click', () => {
-    //console.log("Red Goes First")
     if (player === undefined || player === "Yellow"){
         player = "Red"
     }
-    updateTurn.innerHTML = "Red goes first!"
+    updateTurn.innerHTML = "Red starts the Game!"
 });
 
 //choose to start as Yellow
 startAsYellow.addEventListener('click', () => {
-    //console.log("Yellow Goes First")
-    
     if (player === undefined || player === "Red"){
         player = "Yellow"
     }
-    updateTurn.innerHTML = "Yellow goes first!"
+    updateTurn.innerHTML = "Yellow starts the Game!"
 });
 
-//button to clear board
-// clearButton.addEventListener("click", () => {
-//     for (let i = 0; i < squares.length; i++){
-//         squares[i].innerHTML = ""
-//         squares[i].style.backgroundColor = ""
-//         //squares[i].classList.remove("taken")
-//     }
-// })
-
-//clearButton.onclick = () => squares.innerHTML = "";
-
-//function to clear the board
-//sets Divs back to empty strings. 
+ 
 function clearBoard () {
-    for (let i = 0; i < squares.length; i++){
         for (let i = 0; i < squares.length; i++){
             squares[i].style.backgroundColor = ""
             squares[i].classList.remove("red")
             squares[i].classList.remove("yellow")
             squares[i].classList.remove("taken")
-            
            }
+           updateTurn.innerHTML = "Ready to play Connect4?" 
+           gameOver = false;
     }
-    gameOver = false;
- }
 
 
-//console.log(clearBoard())
+
 for (let i = 0; i < squares.length; i++){
-        //console.log([i])
         squares[i].addEventListener('click', () => {
             if(squares[i + 7].classList.contains("startTaken") || squares[i + 7].classList.contains("taken") &&!squares[i].classList.contains("taken") && gameOver !== true){
-                if (player === "Red"){
+                if (player === "Red" && !squares[i].classList.contains("taken")){
                     //squares[i].innerHTML = "Red" 
                     squares[i].classList.add("red");
                     squares[i].classList.add("taken");
@@ -181,7 +163,7 @@ for (let i = 0; i < squares.length; i++){
                     updateTurn.innerHTML = "Yellows Turn"
                     
                 }
-                else if (player === "Yellow"){
+                else if (player === "Yellow" && !squares[i].classList.contains("taken")){
                     //squares[i].innerHTML = "Yellow" 
                     squares[i].classList.add("yellow")
                     squares[i].classList.add("taken")
@@ -202,42 +184,12 @@ for (let i = 0; i < squares.length; i++){
             // }     
         })
     }
-// for (let i = 0; i < squares.length; i++){
-//     //console.log([i])
-//     squares[i].addEventListener('click', () => {
-//         if(squares[i + 7].classList.contains("startTaken") || squares[i + 7].classList.contains("taken") &&!squares[i].classList.contains("taken") && gameOver !== true){
-//             if (player === "Red"){
-//                 //squares[i].innerHTML = "Red" 
-//                 squares[i].classList.add("red");
-//                 squares[i].classList.add("taken");
-//                 //squares[i].style.backgroundColor = "red";
-//                 player = "Yellow"
-//                 updateTurn.innerHTML = "Yellows Turn"
-                
-//             }
-//             else if (player === "Yellow"){
-//                 //squares[i].innerHTML = "Yellow" 
-//                 squares[i].classList.add("yellow")
-//                 squares[i].classList.add("taken")
-//                 //squares[i].style.backgroundColor = "yellow"
-//                 player = "Red"
-//                 updateTurn.innerHTML = "Reds Turn"
-                
-                
-//             }  
-//         }else updateTurn.innerHTML = "Invalid Move!"
-//         isAWinner()
-        //{
-        //     // gameOver = true
-        //     // console.log(gameOver)
-        //     //setTimeout(clearBoard, 3000) 
-        //     //player = undefined
-        //     //console.log(player)
-        // }     
-//     })
-// }
 
-//squares.addEventListener('click', (handleClick))
+function playMusic(){
+    let music = new music
+}
+
+
 clearButton.addEventListener('click', clearBoard)
 
 //give very bottom row a special class - start taken 
