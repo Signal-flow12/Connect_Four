@@ -6,7 +6,7 @@ const startAsRed = document.querySelector(".redDisk")
 const startAsYellow = document.querySelector(".yellowDisk")
 const redScore = document.querySelector('.redWins');
 const yellowScore = document.querySelector('.yellowWins');
-
+const audio = document.querySelector('music')
 
 let player;
 
@@ -165,13 +165,9 @@ for (let i = 0; i < squares.length; i++){
                     
                 }  
             }else updateTurn.innerHTML = "Invalid Move!"
-            isAWinner()   
+            isAWinner();
         })
     }
-
-function playMusic(){
-    let music = new music
-}
 
 
 clearButton.addEventListener('click', clearBoard);
