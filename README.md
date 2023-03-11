@@ -13,3 +13,10 @@
 
 <br>
 Good luck and connect4!
+
+Tech used: Javascript, HTML, CSS
+
+Feature Enhancements/fixes
+1. fix allowing clicks after a game has been won.
+2. add audio to the game play/pause button.
+3. Dont allow players to click start as yellow/red when game has begun. 
