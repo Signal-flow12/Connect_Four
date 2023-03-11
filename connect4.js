@@ -1,6 +1,4 @@
-//event listeners for gameboard divs, score update, winning disk color, clear button.
 
-//individual divs
 const squares = document.querySelectorAll('.square');
 const updateTurn = document.querySelector('.turn');
 const clearButton = document.querySelector('.clear');
@@ -8,10 +6,9 @@ const startAsRed = document.querySelector(".redDisk")
 const startAsYellow = document.querySelector(".yellowDisk")
 const redScore = document.querySelector('.redWins');
 const yellowScore = document.querySelector('.yellowWins');
-//const taken = document.querySelectorAll(".taken")
+
 
 let player;
-//update score when someone wins
 
 let redWins = 0;
 let yellowWins = 0;
@@ -90,19 +87,14 @@ function isAWinner () {
         [squares[11], squares[18], squares[25], squares[32]],
         [squares[12], squares[19], squares[26], squares[33]],
         [squares[13], squares[20], squares[27], squares[34]],
-      ]
-    //looping through winning arrays(Array within an array). 
+      ] 
     //Checking for a winner. 
       for (let i = 0; i < winners.length; i++){
-            //console.log(winners[i])
         if (winners[i][0].classList.contains("red") && winners[i][1].classList.contains("red") && winners[i][2].classList.contains("red") && winners[i][3].classList.contains("red")){
-            //console.log(winners[i][3])
             redWins ++;
             redScore.innerHTML = redWins; 
             updateTurn.innerHTML = "Red Disk Wins!"
             player = undefined 
-            // window.removeEventListener('click', handleClick)
-            //console.log(player)
             return true;
 
         }else if (winners[i][0].classList.contains("yellow") && winners[i][1].classList.contains("yellow")&& winners[i][2].classList.contains("yellow") && winners[i][3].classList.contains("yellow")){
@@ -110,7 +102,6 @@ function isAWinner () {
                 yellowScore.innerHTML = yellowWins; 
                 updateTurn.innerHTML = "Yellow Disk Wins!"
                 player = undefined
-                // window.removeEventListener('click', handleClick)
                 return true;
                 
         }
@@ -118,7 +109,7 @@ function isAWinner () {
     return false;
 } 
 
-//remove class list of red during 
+
 
 
 //choose to start as Red
@@ -174,14 +165,7 @@ for (let i = 0; i < squares.length; i++){
                     
                 }  
             }else updateTurn.innerHTML = "Invalid Move!"
-            isAWinner()
-            //{
-            //     // gameOver = true
-            //     // console.log(gameOver)
-            //     //setTimeout(clearBoard, 3000) 
-            //     //player = undefined
-            //     //console.log(player)
-            // }     
+            isAWinner()   
         })
     }
 
@@ -190,7 +174,5 @@ function playMusic(){
 }
 
 
-clearButton.addEventListener('click', clearBoard)
+clearButton.addEventListener('click', clearBoard);
 
-//give very bottom row a special class - start taken 
-//assign css class rule to start start taken vis hidden
