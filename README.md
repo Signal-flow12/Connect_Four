@@ -20,3 +20,6 @@ Feature Enhancements/fixes
 1. fix allowing clicks after a game has been won.
 2. add audio to the game play/pause button.
 3. Dont allow players to click start as yellow/red when game has begun. 
+
+
+<img width="1675" alt="Screenshot 2023-03-10 at 8 27 41 PM" src="https://github.com/Signal-flow12/Connect_Four/assets/122571827/1e11ca19-bf07-4c80-808d-b8b9c9b811fa">
